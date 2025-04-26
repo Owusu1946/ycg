@@ -1,0 +1,65 @@
+
+// Component Structure
+- All client-side interactivity should be in 'use client' components
+- Keep server components as the default for better performance
+- Use the React Server Components (RSC) pattern - fetch data in server components, pass it down to client components
+
+// Hydration
+- Never mix client and server rendering logic in the same component
+- Don't use browser-only APIs in server components (localStorage, window, document)
+- Always use useEffect for browser-only code
+- Keep state initialization consistent between server and client
+
+// Data Fetching
+- Prefer React Query/SWR for client-side data fetching with proper error boundaries
+- Use Next.js's built-in data fetching methods for server components
+- Implement proper loading states and error handling for all data fetches
+- Set appropriate cache and revalidation policies
+
+// State Management
+- Use React Context sparingly; prefer prop passing for simple state
+- Initialize state with the same values on both server and client
+- Keep form state client-side only
+- Be careful with global state that might cause hydration mismatches
+
+// Routing
+- Lazy load heavy components with dynamic imports
+- Use proper layout components to avoid re-rendering shared UI
+- Implement proper loading and error states for route transitions
+- Use middleware for authentication and redirects, not client-side checks
+
+// Image Optimization
+- Always use Next.js Image component
+- Set proper sizes, quality, and priority attributes
+- Implement responsive images with appropriate breakpoints
+- Use blur placeholders for better UX
+
+// Forms and User Input
+- Use controlled components with proper validation
+- Keep form state strictly client-side
+- Implement proper error handling and validation feedback
+- Use React Hook Form or similar libraries for complex forms
+
+// Performance
+- Implement proper code splitting and lazy loading
+- Use React.memo and useMemo/useCallback where appropriate
+- Minimize client bundle size by avoiding unnecessary imports
+- Keep third-party libraries in client components only when needed
+
+// SEO and Metadata
+- Use Next.js Metadata API for SEO optimization
+- Implement proper Open Graph and Twitter card metadata
+- Use dynamic metadata for content-specific pages
+- Ensure proper accessibility attributes throughout the app
+
+// Error Handling
+- Use React Error Boundaries around client components that might fail
+- Implement centralized error logging and reporting
+- Create graceful fallbacks for network errors
+- Provide clear error messages to users
+
+// Testing
+- Test components in isolation with React Testing Library
+- Test server components, client components, and API routes separately
+- Implement proper mocking for data fetching and APIs
+- Test both success and error states
