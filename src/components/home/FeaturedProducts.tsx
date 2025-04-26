@@ -208,7 +208,7 @@ const QuickViewModal = ({
                 </div>
                 
                 <div className="text-2xl font-bold text-gray-900 mb-4">
-                  ${product.price.toFixed(2)}
+                  GH₵{product.price.toFixed(2)}
                 </div>
                 
                 <p className="text-gray-600 mb-6">{product.description}</p>
@@ -347,7 +347,7 @@ const ProductCard = ({ product }: { product: typeof featuredProducts[0] }) => {
             </h3>
             <p className="text-sm text-gray-500">{product.category}</p>
           </div>
-          <p className="font-medium">${product.price.toFixed(2)}</p>
+          <p className="font-medium">GH₵{product.price.toFixed(2)}</p>
         </div>
         
         <div className="mt-1 flex items-center">

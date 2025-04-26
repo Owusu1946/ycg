@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Toast, ToastProps } from './Toast';
 
@@ -8,26 +8,26 @@ const ToastContainer = () => {
   const [toasts, setToasts] = useState<ToastProps[]>([]);
   const [isMounted, setIsMounted] = useState(false);
 
-  const addToast = (
-    message: string, 
-    type: ToastProps['type'] = 'success', 
-    duration?: number
-  ) => {
-    const id = Date.now().toString();
-    setToasts((prev) => [
-      ...prev,
-      { id, message, type, duration, onClose: removeToast },
-    ]);
-  };
-
-  const removeToast = (id: string) => {
+  // Wrap removeToast in useCallback since it's used by addToast
+  const removeToast = useCallback((id: string) => {
     setToasts((prev) => prev.filter((toast) => toast.id !== id));
-  };
+  }, []);
+
+  // Wrap addToast in useCallback to prevent it from changing on every render
+  const addToast = useCallback(
+    (message: string, type: ToastProps['type'] = 'success', duration?: number) => {
+      const id = Date.now().toString();
+      setToasts((prev) => [
+        ...prev,
+        { id, message, type, duration, onClose: removeToast },
+      ]);
+    },
+    [removeToast]
+  );
 
   useEffect(() => {
     setIsMounted(true);
     
-    // Listen for toast events
     const handleToast = (event: CustomEvent<{ message: string; type?: ToastProps['type']; duration?: number }>) => {
       const { message, type, duration } = event.detail;
       addToast(message, type, duration);
@@ -38,7 +38,7 @@ const ToastContainer = () => {
     return () => {
       window.removeEventListener('toast', handleToast as EventListener);
     };
-  }, []);
+  }, [addToast]);
 
   if (!isMounted) return null;
 
@@ -69,4 +69,4 @@ export const showToast = (
       })
     );
   }
-}; 
+};

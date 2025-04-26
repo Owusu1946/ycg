@@ -150,7 +150,7 @@ const Footer = () => {
               </a>
             </div>
             <div className="text-gray-500 text-sm">
-              <p>&copy; 2025 YCS. All rights reserved.</p>
+              <p>&copy; 2025 YCG. All rights reserved.</p>
               <div className="flex space-x-4 mt-2">
                 <Link href="/privacy-policy" className="hover:text-pink-500 transition-colors">
                   Privacy Policy

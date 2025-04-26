@@ -16,15 +16,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "YCS | Premium T-Shirt Collection",
-  description: "Discover trendsetting plain and branded t-shirts from YCS. High quality, stylish designs for every occasion.",
+  title: "YCG | Premium T-Shirt Collection",
+  description: "Discover trendsetting plain and branded t-shirts from YCG. High quality, stylish designs for every occasion.",
   keywords: ["t-shirts", "clothing", "fashion", "branded t-shirts", "plain t-shirts", "apparel"],
-  authors: [{ name: "YCS Team" }],
+  authors: [{ name: "YCG Team" }],
   openGraph: {
-    title: "YCS | Premium T-Shirt Collection",
+    title: "YCG | Premium T-Shirt Collection",
     description: "Discover trendsetting plain and branded t-shirts from YCS.",
-    url: "https://ycs.com",
-    siteName: "YCS",
+    url: "https://ycg.com",
+    siteName: "YCG",
     locale: "en_US",
     type: "website",
   },
