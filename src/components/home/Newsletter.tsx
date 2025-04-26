@@ -46,7 +46,7 @@ const Newsletter = () => {
             </svg>
           </div>
           
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Updated with YCS</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Updated with YCG</h2>
           <p className="text-gray-100 mb-8 max-w-2xl mx-auto">
             Be the first to know about new arrivals, exclusive offers, and much more. Don&apos;t miss out on our premium collection updates!
           </p>

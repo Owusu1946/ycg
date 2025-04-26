@@ -26,7 +26,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
             <span className="block">Express Your</span>
             <span className="block text-white">
-              Style in YCS
+              Style in YCG
             </span>
           </h1>
           
