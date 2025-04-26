@@ -8,22 +8,6 @@ const ToastContainer = () => {
   const [toasts, setToasts] = useState<ToastProps[]>([]);
   const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-    
-    // Listen for toast events
-    const handleToast = (event: CustomEvent<Omit<ToastProps, 'id' | 'onClose'>>) => {
-      const { message, type, duration } = event.detail;
-      addToast(message, type, duration);
-    };
-    
-    window.addEventListener('toast' as any, handleToast as EventListener);
-    
-    return () => {
-      window.removeEventListener('toast' as any, handleToast as EventListener);
-    };
-  }, []);
-
   const addToast = (
     message: string, 
     type: ToastProps['type'] = 'success', 
@@ -39,6 +23,22 @@ const ToastContainer = () => {
   const removeToast = (id: string) => {
     setToasts((prev) => prev.filter((toast) => toast.id !== id));
   };
+
+  useEffect(() => {
+    setIsMounted(true);
+    
+    // Listen for toast events
+    const handleToast = (event: CustomEvent<{ message: string; type?: ToastProps['type']; duration?: number }>) => {
+      const { message, type, duration } = event.detail;
+      addToast(message, type, duration);
+    };
+    
+    window.addEventListener('toast', handleToast as EventListener);
+    
+    return () => {
+      window.removeEventListener('toast', handleToast as EventListener);
+    };
+  }, []);
 
   if (!isMounted) return null;
 

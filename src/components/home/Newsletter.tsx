@@ -47,8 +47,8 @@ const Newsletter = () => {
           </div>
           
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Updated with YCS</h2>
-          <p className="text-lg md:text-xl mb-8 opacity-90">
-            Subscribe to our newsletter for exclusive t-shirt drops, special offers, and styling tips delivered straight to your inbox.
+          <p className="text-gray-100 mb-8 max-w-2xl mx-auto">
+            Be the first to know about new arrivals, exclusive offers, and much more. Don&apos;t miss out on our premium collection updates!
           </p>
           
           {isSubmitted ? (
@@ -58,7 +58,7 @@ const Newsletter = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">You're all set!</h3>
+              <h3 className="text-xl font-semibold mb-2">You&apos;re all set!</h3>
               <p>Thank you for subscribing to our newsletter. Your first discount code is on its way!</p>
             </div>
           ) : (
